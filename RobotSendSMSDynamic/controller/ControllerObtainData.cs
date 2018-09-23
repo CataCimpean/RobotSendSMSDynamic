@@ -16,7 +16,22 @@ namespace RobotSendSMSDynamic.controller
         
         public static List<UserDateProgrammingPojo> excelData;
 
-        public static void createJSONFile()
+
+        public static void BuildJSONFile()
+        {
+
+            Int64 currentDayAsInt = DateUtil.ParseDateTimeToIntDay(DateTime.Now);
+            if (currentDayAsInt < 28)
+            {
+                createJSONFile();
+                LogMessage.PrintEventMessage("S-a creat un JSON nou");
+            }
+            else
+            {
+                LogMessage.PrintEventMessage("Nu sa creat JSON nou, folosim cel vechi");
+            }
+        }
+        private static void createJSONFile()
         {
 
             excelData = ReadGoogleSheetAPI.getDataFromGoogleSheetAPI();

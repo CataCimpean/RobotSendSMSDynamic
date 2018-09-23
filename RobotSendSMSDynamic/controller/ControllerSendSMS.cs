@@ -36,8 +36,8 @@ namespace RobotSendSMSDynamic.controller
                         if (serviceResponse.Contains("\"status\":\"success\""))
                         {
                             String notification = "SMS trimis cu succes catre " + currentRecipient.Username + " la nr tel " +currentRecipient.PhoneNumber+  " " +" In data de " + DateTime.Now;
-                            LogMessage.PrintEventMessage(notification); 
-                            EmailUtil.sendEmail(notification, "Notification");
+                            LogMessage.PrintEventMessage(notification);
+                            EmailUtil.SendEmailToAdministrator(notification, "Notification sending SMS");
                         }
                         else
                         {

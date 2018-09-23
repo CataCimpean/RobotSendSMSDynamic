@@ -17,10 +17,12 @@ namespace RobotSendSMSDynamic
     {
         static void Main(string[] args)
         {
-            ControllerObtainData.createJSONFile();
+            ControllerObtainData.BuildJSONFile();
             ControllerSendSMS.startSendSMS();
+            ControllerSendEmail.BuildEmail(); 
 
             return;
+
         }
     }
 }

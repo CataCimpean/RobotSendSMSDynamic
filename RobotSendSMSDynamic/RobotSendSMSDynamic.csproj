@@ -106,9 +106,11 @@
     <Compile Include="api\ReadGoogleSheetAPI.cs" />
     <Compile Include="api\SendSmsAPI.cs" />
     <Compile Include="controller\ControllerObtainData.cs" />
+    <Compile Include="controller\ControllerSendEmail.cs" />
     <Compile Include="controller\ControllerSendSMS.cs" />
     <Compile Include="json\ReadJSON.cs" />
     <Compile Include="model\PhoneNumberPojo.cs" />
+    <Compile Include="model\UserEmailPojo.cs" />
     <Compile Include="model\VideoproiectiePojo.cs" />
     <Compile Include="model\UserDateProgrammingPojo.cs" />
     <Compile Include="Program.cs" />

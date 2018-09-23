@@ -18,7 +18,7 @@ namespace RobotSendSMSDynamic.utils
             {
                 String messageEx = "Nu avem date de incarcat,va rugam actualizati fisierul JSON";
                 LogMessage.PrintEventWarning(messageEx);
-                EmailUtil.sendEmail(messageEx, "ExceptionSendSMSApp");
+                EmailUtil.SendEmailToAdministrator(messageEx, "ExceptionSendSMSApp");
 
             }
             else if (type == 2) {
@@ -26,13 +26,13 @@ namespace RobotSendSMSDynamic.utils
                 {
                     String messageEx = "Nu a fost gasit fisierul JSON in locatie cu proiectul.Va rugam verificati!.";
                     LogMessage.PrintEventWarning(messageEx);
-                    EmailUtil.sendEmail(messageEx, "ExceptionSendSMSApp");
+                    EmailUtil.SendEmailToAdministrator(messageEx, "ExceptionSendSMSApp");
                 }
                 else
                 {
                     String messageEx = "Fisierul JSON este gol/null va rugam verificati continutul acestuia.";
                     LogMessage.PrintEventWarning(messageEx);
-                    EmailUtil.sendEmail(messageEx, "ExceptionSendSMSApp");
+                    EmailUtil.SendEmailToAdministrator(messageEx, "ExceptionSendSMSApp");
                 }
             }
         }
@@ -53,7 +53,7 @@ namespace RobotSendSMSDynamic.utils
                 errorMessageToDisplay.Append(message);
             }
 
-            EmailUtil.sendEmail(errorMessageToDisplay.ToString(), "ExceptionSendSMSApp");
+            EmailUtil.SendEmailToAdministrator(errorMessageToDisplay.ToString(), "ExceptionSendSMSApp");
             LogMessage.PrintEventError(errorMessageToDisplay.ToString());
 
         }
@@ -89,7 +89,7 @@ namespace RobotSendSMSDynamic.utils
                               + DateUtil.GetTodayAsString() + " Denumire eroare: " + recivedStatusFromService + " Cod eroare: " + errorCode + " ."
                               + "Pt mai multe detalii consultati siteul https://api.txtlocal.com/docs/sendsms ";
             LogMessage.PrintEventError(messageError);
-            EmailUtil.sendEmail(messageError, "ErrorSendSMSApi");
+            EmailUtil.SendEmailToAdministrator(messageError, "ErrorSendSMSApi");
         }
     }
 

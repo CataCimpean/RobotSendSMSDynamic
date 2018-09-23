@@ -27,6 +27,12 @@ namespace RobotSendSMSDynamic.utils
             return String.Concat(month, "/", day, "/", year);
         }
 
+        public static Int64 ParseDateTimeToIntDay(DateTime datetime)
+        {
+            Int64 value = new Int64();
+            Int64.TryParse(datetime.ToString("dd"), out value);
+            return value;
+        }
 
         public static String GetTomorrowAsString()
         {
@@ -52,6 +58,16 @@ namespace RobotSendSMSDynamic.utils
             CultureInfo ci = new CultureInfo("ro-RO");
             var month = DateTime.Now.ToString("MMMM", ci);
 
+            return myTitleFormat.ToTitleCase(month);
+        }
+
+
+        public static String getNextMonthEnglishLanguage()
+        {
+            // Creates a TextInfo based on the "en-US" culture.
+            TextInfo myTitleFormat = new CultureInfo("en-EN", false).TextInfo;
+            CultureInfo ci = new CultureInfo("en-EN");
+            var month = DateTime.Now.AddMonths(1).ToString("MMMM", ci);
             return myTitleFormat.ToTitleCase(month);
         }
 

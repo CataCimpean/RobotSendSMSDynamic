@@ -76,5 +76,29 @@ namespace RobotSendSMSDynamic.json
             }
 
         }
+
+        public static List<UserEmailPojo> GetListEmail(String fileEmailPath)
+        {
+            
+              List<UserEmailPojo> list = null;
+              using (StreamReader r = new StreamReader(fileEmailPath))
+              {
+                  String json = r.ReadToEnd();
+                  var jsonAsString = JsonConvert.DeserializeObject<List<UserEmailPojo>>(json);
+
+                  if (jsonAsString != null)
+                  {
+                      list = new List<UserEmailPojo>();
+
+                      foreach (var current in jsonAsString)
+                      {
+
+                          list.Add(current);
+                      }
+
+                  }
+              }
+              return list;
+        }
     }
 }
